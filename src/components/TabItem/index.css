@@ -1,0 +1,13 @@
+/* Write your CSS here */
+
+.disply-text {
+  font-size: 22px;
+  color: #7b8794;
+  list-style-type: none;
+  margin: 7px;
+}
+
+.tab-butt {
+  color: #2563eb;
+  text-decoration: underline;
+}
