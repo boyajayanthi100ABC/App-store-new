@@ -296,12 +296,6 @@ const appsList = [
 class AppStore extends Component {
   state = {activeId: tabsList[0].tabId, searchInput: ''}
 
-  getItems = () => {
-    const {activeId} = this.state
-    const filteredItem = appsList.filter(each => each.category === activeId)
-    return filteredItem
-  }
-
   clickableItem = tabValue => {
     this.setState({activeId: tabValue})
   }
@@ -318,11 +312,18 @@ class AppStore extends Component {
     return searchResults
   }
 
+  getItems = searchResults => {
+    const {activeId} = this.state
+    const filteredItem = searchResults.filter(
+      each => each.category === activeId,
+    )
+    return filteredItem
+  }
+
   render() {
     const {activeId, searchInput} = this.state
-    const filteredItem = this.getItems()
-    console.log(filteredItem)
     const searchResults = this.searchedData()
+    const filteredItem = this.getItems(searchResults)
 
     return (
       <div className="bg-container">
@@ -351,11 +352,11 @@ class AppStore extends Component {
             />
           ))}
         </ul>
-        <div className="items-container">
+        <ul className="items-container">
           {filteredItem.map(eachAppItem => (
             <AppItem key={eachAppItem.appId} eachAppItem={eachAppItem} />
           ))}
-        </div>
+        </ul>
       </div>
     )
   }

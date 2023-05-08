@@ -15,10 +15,11 @@ const TabItem = props => {
 
   return (
     <li className="disply-text">
-      <p onClick={tabItemclick} className={`${classNameHere}`}>
-        {' '}
-        {displayText}
-      </p>
+      <button>
+        <p onClick={tabItemclick} className={`${classNameHere}`}>
+          {displayText}
+        </p>
+      </button>
     </li>
   )
 }

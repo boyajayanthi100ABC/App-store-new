@@ -4,13 +4,13 @@ import './index.css'
 
 const AppItem = props => {
   const {eachAppItem} = props
-  const {appId, appName, imageUrl, category} = eachAppItem
+  const {appId, appName, imageUrl} = eachAppItem
 
   return (
-    <div>
-      <img src={imageUrl} alt={appName} className="item-image" />
+    <li>
+      <img src={imageUrl} alt={appName} className="item-image" key={appId} />
       <p> {appName} </p>
-    </div>
+    </li>
   )
 }
 
